@@ -1,0 +1,273 @@
+@import 'fonts';
+@import 'animations';
+@import './bootstrap/bootstrap';
+
+@import "../../node_modules/@fortawesome/fontawesome-free/scss/fontawesome";
+@import "../../node_modules/@fortawesome/fontawesome-free/scss/brands";
+@import "../../node_modules/@fortawesome/fontawesome-free/scss/regular";
+@import "../../node_modules/@fortawesome/fontawesome-free/scss/solid";
+@import "../../node_modules/@fortawesome/fontawesome-free/scss/v4-shims";
+
+@import "../js/splide/css/splide.min.css";
+
+
+#top{
+  background-image: url("../img/header_without_border.jpg");
+  background-position: center center;
+  background-size: cover;
+  height:474px;
+  border-left: 3px solid #d1d1d1; /* element możliwy do usunięcia */
+  position:relative;
+  margin-bottom: $section-separator;
+
+  @media (min-width: map-get($grid-breakpoints, 'lg')){
+    animation-name: just_zoom;
+    animation-duration: 60s;
+    animation-timing-function: linear;
+    animation-fill-mode: forwards;
+  }
+  div{
+    font-size: 56px;
+    color: #fff;
+    position: absolute;
+    bottom: 0;
+    left:34px;
+    line-height: 67px;
+    opacity:0;
+    animation-name: show;
+    animation-duration: 1s;
+    animation-timing-function: linear;
+    animation-fill-mode: forwards;
+    animation-delay: 1s;
+    span{
+      background: $primary;
+      box-shadow: 17px 0 0 0 $primary, -17px 0 0 0 $primary;
+      //padding: 0 17px 17px 17px;
+      padding-bottom: 17px;
+    }
+  }
+}
+#items{
+  margin-bottom:$section-separator;
+  display: flex;
+  flex-direction: column;
+  @media (min-width: map-get($grid-breakpoints, 'lg')){
+    flex-direction: row;
+  }
+  .item{
+    border: 1px solid #000000;
+    border-bottom: none;
+    padding:16px;
+    &:last-of-type{
+      border-bottom: 1px solid #000000;
+    }
+    @media (min-width: map-get($grid-breakpoints, 'lg')){
+      width: calc(100%/3);
+      border-bottom: 1px solid #000;
+      border-right:none;
+      &:last-of-type{
+        border-right: 1px solid #000000;
+      }
+    }
+    .title{
+      font-size: 18px;
+    }
+    img{
+      width:100%;
+      margin-bottom: 10px;
+    }
+    .prices{
+      font-weight:bold;
+      .price{
+        display: inline-flex;
+        flex-basis: 200px;
+        flex-grow: 0;
+        flex-shrink: 0;
+        align-items: stretch;
+        justify-content: start;
+        font-size:36px;
+        position: relative;
+        line-height: .8;
+        &.old{
+          font-size: 1rem;
+          &:before{
+            content: "";
+            width: 100%;
+            height: 2px;
+            background: #ff0000;
+            position: absolute;
+            bottom: calc(50% - 2px);
+            left: 0;
+            transform: rotate(-14deg);
+          }
+        }
+        .separator:before{
+          content: ",";
+        }
+        .additional{
+          line-height: 1;
+          align-self:start;
+          margin-left: -4px;
+          font-size: .5em;
+          &.none{
+            line-height: 0;
+            padding-top:10px;
+            margin-left: -10px;
+            font-size:1em;
+            &:before{
+              content: "-";
+            }
+          }
+        }
+        .unit{
+          align-self: end;
+          font-size:.4em;
+        }
+      }
+    }
+    .vote{
+      position: relative;
+      width: 85px;
+      height:15px;
+      margin: 0 0 10px;
+      &:before{
+        display: block;
+        position: absolute;
+        top:0;
+        left:0;
+        font-family: 'Font Awesome 5 Free';
+        font-weight: 600;
+        color: #e3e3e3;
+        content: "\f005\f005\f005\f005\f005"
+      }
+      &:after{
+        display: block;
+        position: absolute;
+        top:0;
+        left:0;
+        font-family: 'Font Awesome 5 Free';
+        font-weight: 600;
+        color: $primary;
+      }
+      &.vote_0_0:after{
+        content: ""
+      }
+      &.vote_0_5:after{
+        content: "\f089"
+      }
+      &.vote_1_0:after{
+        content: "\f005"
+      }
+      &.vote_1_5:after{
+        content: "\f005\f089"
+      }
+      &.vote_2_0:after{
+        content: "\f005\f005"
+      }
+      &.vote_2_5:after{
+        content: "\f005\f005\f089"
+      }
+      &.vote_3_0:after{
+        content: "\f005\f005\f005"
+      }
+      &.vote_3_5:after{
+        content: "\f005\f005\f005\f089"
+      }
+      &.vote_4_0:after{
+        content: "\f005\f005\f005\f005"
+      }
+      &.vote_4_5:after{
+        content: "\f005\f005\f005\f005\f089"
+      }
+      &.vote_5_0:after{
+        content: "\f005\f005\f005\f005\f005"
+      }
+    }
+  }
+}
+#jump_to{
+  padding: 45px;
+  background: #ebebeb;
+  margin-bottom: $section-separator;
+  h2{
+    margin-bottom:45px;
+    font-weight: bold;
+    color: #303030;
+  }
+}
+#arrangements{
+  padding-bottom: 60px;
+  margin-bottom: $section-separator;
+  h2{
+    font-weight: bold;
+  }
+}
+#tips{
+  margin-bottom: $section-separator;
+  .tip{
+    width: 100%;
+    @media (min-width: map-get($grid-breakpoints, 'lg')){
+      width: calc(100%/2 - 15px);
+    }
+    img{
+      width: 100%;
+    }
+    h2{
+      font-weight: bold;
+      text-align: center;
+      margin: 30px 0;
+      min-height: 90px;
+    }
+    .short{
+      min-height:120px;
+    }
+  }
+}
+#newspaper{
+  margin-bottom: $section-separator;
+  background-image: url("../img/newspaper_bgr.jpg");
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  text-align: center;
+  padding: 50px 0;
+  @media (min-width: map-get($grid-breakpoints, 'lg')){
+    background-size: 100%;
+
+  }
+  h2{
+    font-size:42px;
+    font-weight: bold;
+    margin: 0 0 36px;
+  }
+  img{
+    width: 100%;
+  }
+}
+/* splide overwrite */
+.splide__pagination{
+  bottom: -40px;
+  .is-active{
+    background: $primary;
+    transform: none;
+  }
+  .splide__pagination__page{
+    width:15px;
+    height:15px;
+    opacity: 1;
+  }
+}
+.splide__arrow{
+  position: absolute;
+  top: unset;
+  bottom: -66px!important;
+  background: none;
+  opacity: 1;
+  color: #494949;
+  &.splide__arrow--prev{
+    left: 29vw;
+  }
+  &.splide__arrow--next{
+    right: 29vw;
+  }
+}
